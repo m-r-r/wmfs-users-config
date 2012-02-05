@@ -1,0 +1,210 @@
+#
+# WMFS2 configuration file
+#
+@include ~/.config/wmfs/wmfs_rules
+@include ~/.config/wmfs/wmfs_themes
+
+
+[bars]
+    [bar]
+        name        = "leftbar"
+        position    = 1
+        screen      = 0
+        elements    = "tsl"   # element order in bar
+        theme       = "greygreen"
+    [/bar]
+    [bar]
+        name        = "rightbar"
+        position    = 1
+        screen      = 1
+        elements    = "yslt"
+        theme       = "blue"
+    [/bar]
+    [bar]
+        name        = "topbar"
+        position    = 2
+        screen      = 0
+        elements    = "s"
+        theme       = "topbar"
+    [/bar]
+    [bar]
+        name = "bartest"
+        position = 2
+        screen = 0
+        elements = "ts"
+        theme = "default"
+    [/bar]
+[/bars]
+
+[tags]
+    [tag] screen = 0    name = "1" [/tag]
+    [tag] screen = 0    name = "2" [/tag]
+    [tag] screen = 0    name = "3" [/tag]
+    [tag] screen = 0    name = "4" [/tag]
+    [tag] screen = 0    name = "5" [/tag]
+    [tag] screen = 0    name = "6" [/tag]
+    [tag] screen = 0    name = "7" [/tag]
+    [tag] screen = 0    name = "8" [/tag]
+    [tag] screen = 0    name = "9" [/tag]
+
+    [tag] screen = 1    name = "w" [/tag]
+    [tag] screen = 1    name = "m" [/tag]
+    [tag] screen = 1    name = "f" [/tag]
+    [tag] screen = 1    name = "s" [/tag]
+    [tag] screen = 1    name = "2" [/tag]
+
+    # Mousebinds associated to Tags element button
+    [mouse] button = "1" func = "tag_click" [/mouse]
+    [mouse] button = "4" func = "tag_next"  [/mouse]
+    [mouse] button = "5" func = "tag_prev"  [/mouse]
+[/tags]
+
+[client]
+    key_modifier = "Alt"
+    theme = "greygreen"
+    [mouse] button = "1" func = "client_focus_click"    [/mouse]
+    [mouse] button = "1" func = "mouse_swap"            [/mouse]
+    [mouse] button = "2" func = "mouse_tab"             [/mouse]
+    [mouse] button = "3" func = "mouse_resize"          [/mouse]
+    [mouse] button = "4" func = "client_focus_next_tab" [/mouse]
+    [mouse] button = "5" func = "client_focus_prev_tab" [/mouse]
+[/client]
+
+[launchers]
+    [launcher]
+        name = "exec"
+        prompt = "Run:"
+        command = "spawn"
+        width = 160
+    [/launcher]
+    [launcher]
+        name = "launcher_man" 
+        prompt = "Man:" 
+        command = "spawn urxvtc -e man"
+        width = 150
+    [/launcher]
+    [launcher]
+        name = "launcher_goto"
+        prompt = "goto/open:"
+        command = "spawn urxvtc -e ranger"
+        width = 300
+    [/launcher]
+[/launchers]
+
+[keys]
+    [key] mod = {"Control"} key = "Return" func = "spawn" cmd = "urxvtc" [/key]
+    [key] mod = {"Control", "Alt"} key = "q" func = "quit" [/key]
+    [key] mod = {"Control", "Alt"} key = "r" func = "reload" [/key]
+
+    # Tag manipulation
+    [key] mod = {"Alt"} key = "ampersand"  func = "tag_set" cmd = "0" [/key]
+    [key] mod = {"Alt"} key = "eacute"     func = "tag_set" cmd = "1" [/key]
+    [key] mod = {"Alt"} key = "quotedbl"   func = "tag_set" cmd = "2" [/key]
+    [key] mod = {"Alt"} key = "apostrophe" func = "tag_set" cmd = "3" [/key]
+    [key] mod = {"Alt"} key = "parenleft"  func = "tag_set" cmd = "4" [/key]
+    [key] mod = {"Alt"} key = "minus"      func = "tag_set" cmd = "5" [/key]
+    [key] mod = {"Alt"} key = "egrave"     func = "tag_set" cmd = "6" [/key]
+    [key] mod = {"Alt"} key = "underscore" func = "tag_set" cmd = "7" [/key]
+    [key] mod = {"Alt"} key = "ccedilla"   func = "tag_set" cmd = "8" [/key]
+
+    [key] mod = {"Alt"} key = "F1" func = "tag_client" cmd = "0" [/key]
+    [key] mod = {"Alt"} key = "F2" func = "tag_client" cmd = "1" [/key]
+    [key] mod = {"Alt"} key = "F3" func = "tag_client" cmd = "2" [/key]
+    [key] mod = {"Alt"} key = "F4" func = "tag_client" cmd = "3" [/key]
+    [key] mod = {"Alt"} key = "F5" func = "tag_client" cmd = "4" [/key]
+    [key] mod = {"Alt"} key = "F6" func = "tag_client" cmd = "5" [/key]
+    [key] mod = {"Alt"} key = "F7" func = "tag_client" cmd = "6" [/key]
+    [key] mod = {"Alt"} key = "F8" func = "tag_client" cmd = "7" [/key]
+    [key] mod = {"Alt"} key = "F9" func = "tag_client" cmd = "8" [/key]
+    
+    # move client to screen
+    [key] mod = {"Alt", "Shift"} key = "Up" func = "screen_move_client_next" [/key]
+    [key] mod = {"Alt", "Shift"} key = "Down" func = "screen_move_client_prev" [/key]
+
+    # tag function: cmd = nameofthetag
+    [key] mod = {"Alt", "Control"} key = "z" func = "tag" cmd = "3" [/key]
+
+    [key] mod = {"Control"} key = "Right" func = "tag_next" [/key]
+    [key] mod = {"Control"} key = "Left"  func = "tag_prev" [/key]
+    [key] mod = {"Control", "Alt"} key = "equal" func = "tag_new" [/key]
+    [key] mod = {"Control", "Alt"} key = "minus" func = "tag_del" [/key]
+    [key] mod = {"Control"} key = "Up"  func = "screen_next" [/key]
+    [key] mod = {"Control"} key = "Down" func = "screen_prev" [/key]
+
+    [key] mod = {"Alt"} key = "q" func = "client_close" [/key]
+
+    # Focus next / prev client and next / prev tabbed client
+    [key] mod = { "Alt" }            key = "Tab" func = "client_focus_next" [/key]
+    [key] mod = { "Alt", "Shift" }   key = "Tab" func = "client_focus_prev" [/key]
+    [key] mod = { "Super" }          key = "Tab" func = "client_focus_next_tab" [/key]
+    [key] mod = { "Super", "Shift" } key = "Tab" func = "client_focus_prev_tab" [/key]
+
+    # Focus next client with direction
+    [key] mod = {"Alt"} key = "h" func = "client_focus_left"   [/key]
+    [key] mod = {"Alt"} key = "l" func = "client_focus_right"  [/key]
+    [key] mod = {"Alt"} key = "k" func = "client_focus_top"    [/key]
+    [key] mod = {"Alt"} key = "j" func = "client_focus_bottom" [/key]
+
+    # swap next client with direction:
+    [key] mod = {"Control", "Shift"} key = "h" func = "client_swap_left"   [/key]
+    [key] mod = {"Control", "Shift"} key = "l" func = "client_swap_right"  [/key]
+    [key] mod = {"Control", "Shift"} key = "k" func = "client_swap_top"    [/key]
+    [key] mod = {"Control", "Shift"} key = "j" func = "client_swap_bottom" [/key]
+
+    # Resize selected tiled client with direction
+    #[key] mod = {"Super"} key = "h" func = "client_resize_left"   cmd = "20" [/key]
+    #[key] mod = {"Super"} key = "l" func = "client_resize_left"   cmd = "-20" [/key]
+    #[key] mod = {"Super"} key = "k" func = "client_resize_top"    cmd = "20" [/key]
+    #[key] mod = {"Super"} key = "j" func = "client_resize_top"    cmd = "-20" [/key]
+    #[key] mod = {"Alt", "Control"} key = "h" func = "client_resize_right"  cmd = "-20" [/key]
+    #[key] mod = {"Super", "Control"} key = "l" func = "client_resize_right"  cmd = "20" [/key]
+    #[key] mod = {"Super", "Control"} key = "k" func = "client_resize_bottom" cmd = "-20" [/key]
+    #[key] mod = {"Super", "Control"} key = "j" func = "client_resize_bottom" cmd = "20" [/key]
+
+    # Tabbing command
+    [key] mod = {"Alt", "Shift"} key = "h" func = "client_tab_left"   [/key]
+    [key] mod = {"Alt", "Shift"} key = "l" func = "client_tab_right"  [/key]
+    [key] mod = {"Alt", "Shift"} key = "k" func = "client_tab_top"    [/key]
+    [key] mod = {"Alt", "Shift"} key = "j" func = "client_tab_bottom" [/key]
+    [key] mod = {"Alt", "Shift"} key = "u" func = "client_untab" [/key]
+
+    # Layout manipulation
+    #[key] mod = {"Super"}          key = "m" func = "layout_vmirror" [/key]
+    #[key] mod = {"Super", "Shift"} key = "m" func = "layout_hmirror" [/key]
+    [key] mod = {"Alt"}            key = "space" func = "layout_rotate_right" [/key]
+    #[key] mod = {"Super", "Shift"} key = "r" func = "layout_rotate_left" [/key]
+
+    [key] mod = {"Control", "Shift", "Alt"} key = "h" func = "layout_integrate_left" [/key]
+    [key] mod = {"Control", "Shift", "Alt"} key = "j" func = "layout_integrate_bottom" [/key]
+    [key] mod = {"Control", "Shift", "Alt"} key = "k" func = "layout_integrate_top" [/key]
+    [key] mod = {"Control", "Shift", "Alt"} key = "l" func = "layout_integrate_right" [/key]
+  
+    # Toggle client free/tile
+    [key] mod = {"Alt"} key = "f" func = "client_toggle_free" [/key]
+
+    # Layout set historic travelling function (TESTING)
+    [key] mod = {"Alt"} key = "o" func = "layout_prev_set" [/key]
+    [key] mod = {"Alt", "Shift"} key = "o" func = "layout_next_set" [/key]
+
+    # Launchers
+    [key] mod = {"Alt"}                     key = "p" func = "launcher" cmd = "exec" [/key]
+    [key] mod = {"Alt", "Shift"}            key = "m" func = "launcher" cmd = "launcher_man" [/key]
+    [key] mod = {"Alt",}                    key = "g" func = "launcher" cmd = "launcher_goto" [/key]
+    [key] mod = {"Alt"}                     key = "d" func = "spawn"    cmd = "dmenu-wmfs.sh" [/key]
+    [key] mod = {"Alt", "Control"}          key = "t" func = "spawn"    cmd = "dmenu-todo.sh" [/key]
+    [key] mod = {"Alt", "Control"}          key = "h" func = "spawn"    cmd = "dmenu-home.sh" [/key]
+    [key] mod = {"Alt", "Control", "Shift"} key = "q" func = "spawn"    cmd = "dmenu-quit.sh" [/key]
+
+    # Keybinds
+    [key] mod = {"Alt"}             key = "r" func = "spawn" cmd = "urxvtc -e ranger" [/key]
+    [key] mod = {"Alt", "Shift"}    key = "r" func = "spawn" cmd = "rox-filer" [/key]
+    [key] mod = {"Alt"}             key = "w" func = "spawn" cmd = "luakit" [/key]
+    [key] mod = {"Alt", "Shift"}    key = "w" func = "spawn" cmd = "firefox" [/key]
+    [key] mod = {"Alt"}             key = "e" func = "spawn" cmd = "urxvtc -e vim" [/key]
+    [key] mod = {"Alt", "Shift"}    key = "e" func = "spawn" cmd = "geany" [/key]
+    [key] mod = {"Alt"}             key = "z" func = "spawn" cmd = "urxvtc -e mocp" [/key]
+    [key] mod = {"Alt"}             key = "v" func = "spawn" cmd = "urxvtc -T sound -e alsamixer" [/key]
+
+    # Config
+    [key] mod = {"Alt", "Control"}  key = "w" func = "spawn" cmd = "randwalls_wmfs.sh" [/key]
+[/keys]
