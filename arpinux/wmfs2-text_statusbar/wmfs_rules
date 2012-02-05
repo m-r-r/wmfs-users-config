@@ -1,0 +1,70 @@
+#rules for wmfs²
+[rules]
+    [rule]
+        instance = "xv"
+        #role   = ""
+        #name   = ""
+        theme  = "titleless"
+        #tag    = 1  # 2nd tag
+        screen = 0
+        free = true
+        #max = false
+        #ignore_tag = false
+    [/rule]
+    [rule]
+        name = "Save Image"
+        free = true
+    [/rule]
+    [rule]
+        class = "Claws-mail"
+        screen = 0
+    [/rule]
+    [rule]
+        class = "Gimp"
+        free = true
+    [/rule]
+    [rule]
+        class = "XCalc"
+        free = true
+    [/rule]
+    [rule]
+        class = "File-roller"
+        free = true
+    [/rule]
+    [rule]
+        name = "sound"
+        free = true
+    [/rule]
+    [rule]
+        name = "Copy"
+        free = true
+    [/rule]
+    [rule]
+        name = "Delete"
+        free = true
+    [/rule]
+    [rule]
+        name = "Move"
+        free = true
+    [/rule]
+    [rule]
+        name = "Options"
+        free = true
+    [/rule]
+    [rule]
+        name = "Set icon"
+        free = true
+    [/rule]
+    [rule]
+        name = "Downloads"
+        free = true
+    [/rule]
+    [rule]
+        name = "watch"
+        free = true
+    [/rule]
+    [rule]
+        class = "Savebox"
+        free = true
+    [/rule]
+[/rules]
