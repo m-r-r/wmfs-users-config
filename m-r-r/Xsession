@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Cursor theme
+export XCURSOR_THEME="Openzone"
+
+# Editor
+export EDITOR="vim"
+
+# X ressources
+xrdb -load ~/.Xdefaults
+
+# X composition manager
+xcompmgr -n &
+
+# Clipboard manager
+parcellite &
+
+# Wallpaper manager
+nitrogen --restore & 
+#wallpaper: http://gnome-look.org/content/show.php/Space+in+Lines+5Different+Resolutions?content=148791
+
+#Volume systray icon
+volumeicon &
+
+# Terminal emulator
+tilda &
+
+# WMFS² status script
+~/.config/wmfs/status.sh --loop &
+
+# WMFS²
+ssh-agent wmfs || xterm
+exit $?
